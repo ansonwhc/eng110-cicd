@@ -14,7 +14,6 @@ Continuous Deployment takes our deployment task one step further to automaticall
 
 ## Jenkins
 It is a tool to implement the CICD pipeline. It automates the processes the developed software have to be gone through before production and the deployment to the pre-production/production environment.
-![Jenkins](images/Jenkins.png)
 
 ### Benefits
 Automation allows for faster time to market while minimising manual errors. For example, instead of manually putting the software through unittests, run it on VMs with different configurations, and deploy it onto the production environment, Jenkins provides the option to automates it all.
