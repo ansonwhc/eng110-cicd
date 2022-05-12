@@ -1,7 +1,7 @@
 # CICD
 CICD is a set of practices that create a CICD pipeline, which allows us to have our latest version of the developed software to be integrated and deployed automatically to our production environment where customers use the software from, or to the customers directly.
 
-
+Jenkins guide [here](Jenkins-guide.md)
 
 ## Continuous Integration
 When a new version has been committed on a version control platform, we are then tasked with integrating that latest version to our release location/branch. For us to securely and safely perform this task, tests have to be performed to ensure the software works as designed in the release environment. Continuous integration utilises software to automate the software testing process, and then merge the latest version with the release branch.
