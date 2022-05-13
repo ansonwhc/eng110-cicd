@@ -65,3 +65,4 @@ Tigger deployment job if the merge was successfull
 - Testing Jenkins merge to main after successful dev commit - 2
 - Testing Jenkins push merge to main back to GitHub
 - Testing Jenkins push merge to main back to GitHub after allowing write access when adding repo pub key
+- New Jenkin server Job 1-2 try
