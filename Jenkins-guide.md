@@ -5,6 +5,7 @@ This guide will go through steps shown in this diagram.
 - Keys generation guide [here](#keys-generation)
     - Set SSH keys on GitHub guide [here](#set-ssh-keys-on-github)
 - Setting new job on Jenkins guide [here](#setting-new-job)
+- CICD Pipeline Architecture guide [here](#cicd-pipeline-architecture)
 
 ## Keys generation
 We will generate a key pair used for connecting our local machine to GitHub and connecting to Jenkins from GitHub.  
@@ -47,3 +48,7 @@ Official documentation available here: https://docs.github.com/en/authentication
 <img src="https://user-images.githubusercontent.com/94448528/168166625-1f135d57-7a3a-487a-894a-c62eab9cb3b5.png" width="750">
 
 ![Screenshot 2022-05-12 215459](https://user-images.githubusercontent.com/94448528/168166631-4e46daaf-d760-4c17-a203-3208ae4a620f.png)
+
+## CICD Pipeline Architecture
+![Screenshot 2022-05-13 130126](https://user-images.githubusercontent.com/94448528/168279272-4e5fe6c6-3024-4927-b32a-9490e3434990.png)
+
