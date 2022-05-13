@@ -61,3 +61,4 @@ Tigger deployment job if the merge was successfull
 - Testing webhook in bootcamp test3
 
 - Testing Jenkins agent node after local dev branch push
+- Testing Jenkins merge to main after successful dev commit
