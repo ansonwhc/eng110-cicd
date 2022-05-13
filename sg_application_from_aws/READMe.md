@@ -63,3 +63,4 @@ Tigger deployment job if the merge was successfull
 - Testing Jenkins agent node after local dev branch push
 - Testing Jenkins merge to main after successful dev commit
 - Testing Jenkins merge to main after successful dev commit - 2
+- Testing Jenkins push merge to main back to GitHub
