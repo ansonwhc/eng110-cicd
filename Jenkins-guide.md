@@ -50,5 +50,19 @@ Official documentation available here: https://docs.github.com/en/authentication
 ![Screenshot 2022-05-12 215459](https://user-images.githubusercontent.com/94448528/168166631-4e46daaf-d760-4c17-a203-3208ae4a620f.png)
 
 ## CICD Pipeline Architecture
-![Screenshot 2022-05-13 130126](https://user-images.githubusercontent.com/94448528/168279272-4e5fe6c6-3024-4927-b32a-9490e3434990.png)
+![Screenshot 2022-05-16 001427](https://user-images.githubusercontent.com/94448528/168498197-36ed37cf-ddff-4978-b9ed-046c97264630.png)
+
+- When branch is changed, as shown  
+
+<img src="https://user-images.githubusercontent.com/94448528/168498235-d4520bc4-fef0-4b6e-add6-5a9c90dc7b61.png" width="500">
+
+- The job should be run on that branch only  
+
+<img src="https://user-images.githubusercontent.com/94448528/168498268-bc258252-56e3-4c5e-acd5-8f4ba2edd591.png" width="500">
+
+- Use Git Publisher to push the merge back to GitHub
+    -  It requires the repo deploy key set to allow write access  
+    
+    <img src="https://user-images.githubusercontent.com/94448528/168498318-bb9d5dee-9c03-4b9c-b964-880603229ba5.png" width="500">
+
 
