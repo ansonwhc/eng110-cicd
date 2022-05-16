@@ -94,3 +94,4 @@ Tigger deployment job if the merge was successfull
 - Trying to fix pm2 not found
 
 - Changed pic
+- Changed pic 1
