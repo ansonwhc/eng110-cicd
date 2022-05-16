@@ -95,4 +95,5 @@ Tigger deployment job if the merge was successfull
 
 - Changed pic
 - Changed pic 1
- - New Jenkin s server
+- New Jenkin s server
+- New Jenkin s server2
