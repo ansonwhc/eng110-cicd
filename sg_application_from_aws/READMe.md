@@ -86,3 +86,4 @@ Tigger deployment job if the merge was successfull
 - Jenkins connect DB3
 - Jenkins connect DB4
 - Jenkins connect DB5
+- Jenkins connect DB6 - added to both .bashrc and .profile
