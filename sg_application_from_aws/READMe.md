@@ -82,3 +82,4 @@ Tigger deployment job if the merge was successfull
 - Jenkins run provision
 - Jenkins run app
 - Jenkins connect DB
+- Jenkins connect DB2
