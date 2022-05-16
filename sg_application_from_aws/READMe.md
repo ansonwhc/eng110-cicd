@@ -91,3 +91,4 @@ Tigger deployment job if the merge was successfull
 - Jenkins test - should run
 
 - Added npm kill all
+- Trying to fix pm2 not found
