@@ -84,3 +84,4 @@ Tigger deployment job if the merge was successfull
 - Jenkins connect DB
 - Jenkins connect DB2
 - Jenkins connect DB3
+- Jenkins connect DB4
