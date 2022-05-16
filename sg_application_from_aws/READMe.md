@@ -76,3 +76,4 @@ Tigger deployment job if the merge was successfull
 - Jenkins Monday CD3
 - Jenkins Monday curl from github
 - Jenkins Monday curl from github2
+- Jenkins Monday curl from github3
