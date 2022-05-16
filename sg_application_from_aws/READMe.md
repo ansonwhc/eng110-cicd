@@ -72,3 +72,4 @@ Tigger deployment job if the merge was successfull
 - Jenkins Monday CI
 - Jenkins Monday CI2
 - Jenkins Monday CD
+- Jenkins Monday CD2
