@@ -87,3 +87,4 @@ Tigger deployment job if the merge was successfull
 - Jenkins connect DB4
 - Jenkins connect DB5
 - Jenkins connect DB6 - added to both .bashrc and .profile
+- Jenkins connect DB7 - npm start in localhost ec2 works
