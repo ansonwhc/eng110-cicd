@@ -24,5 +24,5 @@ sudo rm /etc/nginx/sites-available/default
 sudo cp ~/sg_application_from_aws/default_new /etc/nginx/sites-available/default
 
 # finally, restart the nginx service so the new config takes hold
-sudo service nginx restart
-sudo service nginx enable
+sudo systemctl restart nginx
+sudo systemctl enable nginx
