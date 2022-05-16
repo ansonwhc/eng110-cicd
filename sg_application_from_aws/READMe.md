@@ -68,3 +68,5 @@ Tigger deployment job if the merge was successfull
 - New Jenkin server Job 1-2 try
 - New Jenkins server Job 1-2 
 - from push to ec2 nginx running
+
+- Jenkins Monday CI
