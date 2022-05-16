@@ -80,3 +80,4 @@ Tigger deployment job if the merge was successfull
 - Jenkins scp
 - Jenkins scp2
 - Jenkins run provision
+- Jenkins run app
