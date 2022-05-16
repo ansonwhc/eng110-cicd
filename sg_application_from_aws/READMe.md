@@ -80,3 +80,4 @@ Tigger deployment job if the merge was successfull
 - Jenkins Monday curl from github3
 - Jenkins Monday curl from github4
 - Jenkins Monday curl from github5
+- Jenkins Monday curl from github6
