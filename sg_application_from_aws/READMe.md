@@ -92,3 +92,5 @@ Tigger deployment job if the merge was successfull
 
 - Added npm kill all
 - Trying to fix pm2 not found
+
+- Changed pic
