@@ -79,3 +79,4 @@ Tigger deployment job if the merge was successfull
 - Jenkins Monday curl from github3
 - Jenkins scp
 - Jenkins scp2
+- Jenkins run provision
