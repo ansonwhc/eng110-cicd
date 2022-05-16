@@ -70,3 +70,4 @@ Tigger deployment job if the merge was successfull
 - from push to ec2 nginx running
 
 - Jenkins Monday CI
+- Jenkins Monday CI2
