@@ -6,6 +6,7 @@ This guide will go through steps shown in this diagram.
     - Set SSH keys on GitHub guide [here](#set-ssh-keys-on-github)
 - Setting new job on Jenkins guide [here](#setting-new-job)
 - CICD Pipeline Architecture guide [here](#cicd-pipeline-architecture)
+- Jenkins server setup guide [here](#create-jenkins-server)
 
 ## Keys generation
 We will generate a key pair used for connecting our local machine to GitHub and connecting to Jenkins from GitHub.  
@@ -65,4 +66,69 @@ Official documentation available here: https://docs.github.com/en/authentication
     
     <img src="https://user-images.githubusercontent.com/94448528/168498318-bb9d5dee-9c03-4b9c-b964-880603229ba5.png" width="500">
 
+## Create Jenkins server
+
+### First iteration
+We will create one master/controller node (EC2 instance) and one agent node (EC2 instance)
+- Assuming public and private key is already generated/configured/provided on AWS  
+
+1. Create Controller
+    - create an EC2 instance on aws
+    - allow port 22, 80, and 8080 from anywhere IPv4
+    - SSH into the controller
+    - update & upgrade
+    - [ec2-controller ~]$ ```curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo tee \
+    /usr/share/keyrings/jenkins-keyring.asc > /dev/null```
+    - [ec2-controller ~]$ ```echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
+    https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
+    /etc/apt/sources.list.d/jenkins.list > /dev/null```
+    - [ec2-controller ~]$ `sudo apt-get update -y`
+    - [ec2-controller ~]$ `sudo apt-get install fontconfig openjdk-11-jre -y`
+    - [ec2-controller ~]$ `sudo apt-get install jenkins -y`
+    - [ec2-controller ~]$ `sudo systemctl enable jenkins`
+    - [ec2-controller ~]$ `sudo systemctl start jenkins`
+    - [ec2-controller ~]$ `sudo systemctl status jenkins`
+    - connect to `http://<your_server_public_DNS>:8080`
+
+        ![](/images/unlock_jenkins.png)
+
+    - [ec2-controller ~]$ `sudo cat /var/lib/jenkins/secrets/initialAdminPassword`
+    - install suggested plugins/customise
+    - create first admin user
+    - on the left-hand side, click **Manage Jenkins**, and then click **Manage Plugins**
+    - click on the **Available** tab, and then enter **Amazon EC2 plugin** at the top right
+    - select the checkbox next to **Amazon EC2 plugin**, and then click **Install without restart**
+
+        ![](/images/install_ec2_plugin.png)
+
+    - once the installation is done, click Back to **Dashboard**
+    - click on **Configure a cloud**
+
+        ![](/images/configure_cloud.png)
+
+    - click **Add a new cloud**, and select **Amazon EC2**. A collection of new fields appears
+    - fill out all the fields (Note: You will have to Add Credentials of the kind AWS Credentials.)
+
+2. Create Agent Node
+    - create an EC2 instance on aws (used the same security group as the controller)
+    - SSH into the controller
+    - [ec2-agent ~]$ update & upgrade
+    - [ec2-agent ~]$ `sudo apt-get install default-jre -y`
+    - [local host] connect to `http://<your_server_public_DNS>:8080`
+    - add New Node
+    - remote root directory: `/home/ubuntu`
+    
+        ![](/images/Screenshot%202022-05-30%20182334.png)
+
+    - Host: `<agent instance IP>`
+    - choose key
+        - if add new key
+            - Kind: `SSH Username with private key`
+            - Username: `ubuntu`
+            - Private Key: `<enter directly>`
+    - Host Key Verification Strategy: `Non verifying Verification Strategy`
+
+3. When running jobs, specify to run on agent nodes
+
+    ![](/images/Screenshot%202022-05-30%20182901.png)
 
