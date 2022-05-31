@@ -72,15 +72,20 @@ Official documentation available here: https://docs.github.com/en/authentication
 We will create one master/controller node (EC2 instance) and one agent node (EC2 instance)
 - Assuming public and private key is already generated/configured/provided on AWS  
 
+- Resources
+    - Installing Jenkins on ubuntu 18.04: https://pkg.jenkins.io/debian-stable/
+    - Jenkins on AWS: https://www.jenkins.io/doc/tutorials/tutorial-for-installing-jenkins-on-AWS/#configure-jenkins
+    - Jenkins reverse proxy with nginx: https://www.bogotobogo.com/DevOps/Jenkins/Jenkins_on_EC2_setting_up_master_slaves.php
+    - Jenkins agent node on AWS: https://support.cloudbees.com/hc/en-us/articles/222978868-How-to-Connect-to-Remote-SSH-Agents-
+
 1. Create Controller
     - create an EC2 instance on aws
     - allow port 22, 80, and 8080 from anywhere IPv4
     - SSH into the controller
     - update & upgrade
-    - [ec2-controller ~]$ ```curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo tee \
-    /usr/share/keyrings/jenkins-keyring.asc > /dev/null```
-    - [ec2-controller ~]$ ```echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
-    https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
+    - [ec2-controller ~]$ ```curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo tee /usr/share/keyrings/jenkins-keyring.asc > /dev/null```
+    - [ec2-controller ~]$ ```echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] 
+    https://pkg.jenkins.io/debian-stable binary/ | sudo tee 
     /etc/apt/sources.list.d/jenkins.list > /dev/null```
     - [ec2-controller ~]$ `sudo apt-get update -y`
     - [ec2-controller ~]$ `sudo apt-get install fontconfig openjdk-11-jre -y`
