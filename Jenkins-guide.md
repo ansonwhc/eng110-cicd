@@ -6,7 +6,7 @@ This guide will go through steps shown in this diagram.
     - Set SSH keys on GitHub guide [here](#set-ssh-keys-on-github)
 - Setting new job on Jenkins guide [here](#setting-new-job)
 - CICD Pipeline Architecture guide [here](#cicd-pipeline-architecture)
-- Jenkins server setup guide [here](#create-jenkins-server)
+- Jenkins server on AWS EC2 setup guide [here](#create-jenkins-server)
 
 ## Keys generation
 We will generate a key pair used for connecting our local machine to GitHub and connecting to Jenkins from GitHub.  
@@ -68,7 +68,7 @@ Official documentation available here: https://docs.github.com/en/authentication
 
 ## Create Jenkins server
 
-### First iteration
+### Create Controller and Agent nodes on AWS EC2
 We will create one master/controller node (EC2 instance) and one agent node (EC2 instance)
 - Assuming public and private key is already generated/configured/provided on AWS  
 
@@ -78,7 +78,8 @@ We will create one master/controller node (EC2 instance) and one agent node (EC2
     - Jenkins reverse proxy with nginx: https://www.bogotobogo.com/DevOps/Jenkins/Jenkins_on_EC2_setting_up_master_slaves.php
     - Jenkins agent node on AWS: https://support.cloudbees.com/hc/en-us/articles/222978868-How-to-Connect-to-Remote-SSH-Agents-
 
-1. Create Controller
+1. Create Jenkins Server
+    #### Directly on EC2 
     - create an EC2 instance on aws
     - allow port 22, 80, and 8080 from anywhere IPv4
     - SSH into the controller
@@ -93,9 +94,28 @@ We will create one master/controller node (EC2 instance) and one agent node (EC2
     - [ec2-controller ~]$ `sudo systemctl enable jenkins`
     - [ec2-controller ~]$ `sudo systemctl start jenkins`
     - [ec2-controller ~]$ `sudo systemctl status jenkins`
-    - connect to `http://<your_server_public_DNS>:8080`
+    - connect to `http://<your_server_public_DNS>:8080`  
 
-        ![](/images/unlock_jenkins.png)
+    #### Using Docker-compose
+    - install docker & docker-compose (a quick installation guide can be found <a href="https://github.com/ansonwhc/eng110-microservices/blob/main/ec2-microservices.md">here</a>)
+    - DockerHub Jenkins offical image: https://hub.docker.com/r/jenkins/jenkins
+    - create a yaml file that docker-compose can execute, for example:
+
+            version: '3'
+            services:
+              jenkins:
+                container_name: jenkins
+                image: jenkins/jenkins
+                ports:
+                  - "8080:8080"
+              
+    - `docker-compuse up -d` (detached mode)
+    - get the container info by `docker logs -f <container_name, e.g. jenkins>`
+        - jenkins server password should be displayed
+
+2. Configure Jenkins Server
+
+    ![](/images/unlock_jenkins.png)
 
     - [ec2-controller ~]$ `sudo cat /var/lib/jenkins/secrets/initialAdminPassword`
     - install suggested plugins/customise
@@ -114,7 +134,7 @@ We will create one master/controller node (EC2 instance) and one agent node (EC2
     - click **Add a new cloud**, and select **Amazon EC2**. A collection of new fields appears
     - fill out all the fields (Note: You will have to Add Credentials of the kind AWS Credentials.)
 
-2. Create Agent Node
+3. Create Agent Node
     - create an EC2 instance on aws (used the same security group as the controller)
     - SSH into the controller
     - [ec2-agent ~]$ update & upgrade
