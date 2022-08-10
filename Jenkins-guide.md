@@ -85,6 +85,7 @@ We will create one master/controller node (EC2 instance) and one agent node (EC2
 
 1. Create Jenkins Server
     #### Directly on EC2 
+    reference: https://pkg.jenkins.io/debian/
     - create an EC2 instance on aws
     - allow port 22, 80, and 8080 from anywhere IPv4
     - SSH into the controller
